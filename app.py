@@ -41,7 +41,7 @@ def app():
     This project has been created with the intention of classifying objects used in the mechanial industry in 4 variant classes namely : <b><i><u> Bolt, Locating Pin, Nut, Washer. </b></i></u> <br>
     We have used Convolutional Neural Networks here for training our model which will predict and classify these objects in it's respective classes. Please refer the CNN architecture given below where you can understand the number of layers and neurons and trainable parameters. <br>
     You can also refer the graph below where the train_acc, train_loss, vall_acc and val_loss through the epochs can be understood. <br>
-    The Dataset - [Dataset from Kaggle](https://www.kaggle.com/datasets/manikantanrnair/images-of-mechanical-parts-boltnut-washerpin) <br>
+    The Dataset - <a href="https://www.kaggle.com/datasets/manikantanrnair/images-of-mechanical-parts-boltnut-washerpin" target="_blank"> Dataset from Kaggle </a> <br>
     Kindly use this dataset, as the model is trained on the same! The model might not perform very well on images taken from google, as it is not trained on the same as of March 2023!
     '''
 
@@ -55,7 +55,6 @@ def app():
             """,
             unsafe_allow_html=True
         )
-    st.markdown(text_block)
     
     st.write("")
     st.write("")
