@@ -31,11 +31,6 @@ def app():
     
     st.write("\n\n")
     
-    text_block = """
-    This is a link to [Google](https://www.google.com).
-    """
-    st.markdown(text_block)
-    
     # Define your block of text
     text_block = '''
     This project has been created with the intention of classifying objects used in the mechanial industry in 4 variant classes namely : <b><i><u> Bolt, Locating Pin, Nut, Washer. </b></i></u> <br>
