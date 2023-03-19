@@ -13,7 +13,7 @@ import plotly.graph_objs as go
 class_labels = ['Nut', 'Washer', 'Locatingpin', 'Bolt']
 
 # Load the trained CNN model
-model = tf.keras.models.load_model('models/object_detection.model2')
+model = tf.keras.models.load_model('/object_detection.model2')
 
 
 # Define a function to preprocess the input image
@@ -114,7 +114,7 @@ def app():
     
     with st.expander("Click to see Graph"):
         st.subheader('Graph of Object Classification')
-        sample_img = cv2.imread('Plot Images/plot_12.png')
+        sample_img = cv2.imread('plot_12.png')
         FRAME_WINDOW = st.image(sample_img, channels='BGR')
         st.write('This is the Graph of Performance Metrics throughout the training of our custom Object Classification Model')
         
