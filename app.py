@@ -55,7 +55,7 @@ def app():
             """,
             unsafe_allow_html=True
         )
-       
+    st.markdown(text_block)
     
     st.write("")
     st.write("")
