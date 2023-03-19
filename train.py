@@ -28,7 +28,7 @@ if gpus:
 
 
 # initial parameters
-epochs = 30
+epochs = 50
 learning_rate = 0.001
 batch_size = 32
 img_dims = (128, 128, 3)
@@ -124,40 +124,24 @@ def build(width, height, depth, classes):
         chanDim = 1
 
     # The axis that should be normalized, after a Conv2D layer with data_format="channels_first",
-    # set axis=1 in BatchNormalization. Dont use BatchNormalization its not at all good, reduces the model accuracy and val_accuracy like anything. Refrain from using Batch Normalization
+    # Dont use BatchNormalization its not at all good, reduces the model accuracy and val_accuracy like anything. Refrain from using Batch Normalization
     
 
     # First convolutional layer
     model.add(Conv2D(8, (3, 3), activation='relu', input_shape=inputShape))
-    # model.add(BatchNormalization()) 
-    
-    model.add(Conv2D(8, (3, 3), activation='relu'))
     model.add(MaxPooling2D((2, 2)))
-    #model.add(Dropout(0.05))
 
     # Second convolutional layer
     model.add(Conv2D(16, (3, 3), activation='relu'))
-    # model.add(BatchNormalization())
-    
-    model.add(Conv2D(16, (3, 3), activation='relu'))
     model.add(MaxPooling2D((2, 2)))
-    #model.add(Dropout(0.05))
 
     # Third convolutional layer
     model.add(Conv2D(32, (3, 3), activation='relu'))
-    # model.add(BatchNormalization())
-    
-    model.add(Conv2D(32, (3, 3), activation='relu'))
     model.add(MaxPooling2D((2, 2)))
-    #model.add(Dropout(0.05))
 
     # Fourth convolutional layer
-    model.add(Conv2D(64, (3, 3), activation='relu'))
-    # model.add(BatchNormalization())
-    
-    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(Conv2D(16, (3, 3), activation='relu'))
     model.add(MaxPooling2D((2, 2)))
-    #model.add(Dropout(0.05))
 
     # Fifth convolutional layer
     # model.add(Conv2D(8, (3, 3), activation='relu', padding='same'))
@@ -176,8 +160,6 @@ def build(width, height, depth, classes):
 
     # Dense layers
     model.add(Dense(256, activation='relu'))
-    # model.add(BatchNormalization())
-    #model.add(Dropout(0.25))
 
     model.add(Dense(classes, activation='softmax'))
 
@@ -197,7 +179,6 @@ H = model.fit(aug.flow(trainX, trainY, batch_size=batch_size), validation_data=(
 
 # save the model to disk
 model.save('object_detection.model')
-#tf.saved_model.save(tf_object_detection, 'tf_object_detection.model', )
 
 # plot training/validation loss/accuracy
 plt.style.use("ggplot")
@@ -214,4 +195,4 @@ plt.ylabel("Loss/Accuracy\n")
 plt.legend(loc="right")
 
 # save plot to disk
-plt.savefig('plot_1.png')
+plt.savefig('plot.png')
