@@ -13,7 +13,7 @@ import plotly.graph_objs as go
 class_labels = ['Nut', 'Washer', 'Locatingpin', 'Bolt']
 
 # Load the trained CNN model
-model = tf.keras.models.load_model('/object_detection.model2')
+model = tf.keras.models.load_model('object_detection.model2')
 
 
 # Define a function to preprocess the input image
